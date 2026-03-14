@@ -1,0 +1,35 @@
+[package]
+name = "golutra-cli"
+version = "0.1.0"
+description = "Headless multi-agent orchestration engine extracted from golutra"
+authors = ["seekskyworld"]
+license = "BUSL-1.1"
+repository = ""
+edition = "2021"
+rust-version = "1.77.2"
+default-run = "golutra-cli"
+
+[lib]
+name = "golutra_cli"
+crate-type = ["rlib"]
+
+[dependencies]
+atty = "0.2"
+bincode = "1.3"
+dirs = "5"
+env_logger = "0.11"
+fs2 = "0.4"
+log = "0.4"
+portable-pty = "0.9.0"
+redb = "2"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+ulid = "1"
+
+[[bin]]
+name = "golutra-cli"
+path = "src/bin/golutra-cli.rs"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.52", features = ["Win32_Foundation", "Win32_Graphics_Gdi", "Win32_Storage_FileSystem", "Win32_System_Console"] }

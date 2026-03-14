@@ -1,0 +1,5 @@
+/target
+/.tmp-home
+/.idea
+/.vscode
+*.log
